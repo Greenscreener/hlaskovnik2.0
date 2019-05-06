@@ -1,2 +1,7 @@
 credentials.php
 .idea
+.directory
+assets/styles/bulma-0.7.4/*
+**/.sass-cache/**
+**/*.css
+**/*.css.map
