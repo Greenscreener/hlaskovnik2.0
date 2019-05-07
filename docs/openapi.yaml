@@ -3,15 +3,25 @@ info:
   title: Hláškovník API
   description: REST API for Hláškovník. An app for writing down funny things teachers say.
   version: "2.0"
-  
+
 servers:
   - url: http://hlaskovnik.tk/api/v2.0/
     description: The one and only api url.
-  
+
 paths:
   /hlasky:
     get:
       summary: Returns a list of all quotes.
+      parameters:
+        - in: query
+          name: filterByTeacher
+          schema:
+            type: string
+        - in: query
+          name: filterByDate
+          schema:
+            type: string
+            format: date
       responses:
         200:
           description: All OK, a list of quotes.
@@ -22,8 +32,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/Quote'
     post:
-      summary: Add a new quote.
-      security: 
+      summary: Adds a new quote.
+      security:
         - PasswordAuth: []
           ReCaptchaAuth: []
         - ApiKeyAuth: []
@@ -32,7 +42,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Quote'
+              $ref: '#/components/schemas/NewQuote'
       responses:
         201:
           description: OK. Created
@@ -54,12 +64,49 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Quote'
-          
-          
-          
-    
-  
-  
+  /hlasky/{quoteId}/likes:
+    post:
+      summary: Adds a like to a quote.
+      security:
+        - ReCaptchaAuth: []
+        - ApiKeyAuth: []
+      parameters:
+        - in: cookie
+          name: userId
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: quoteId
+          schema:
+            type: integer
+          required: true
+      responses:
+        201:
+          description: OK. Like added.
+        400:
+          description: Bad request.
+        409:
+          description: Conflict. Already liked.
+  /users/{userId}/likes:
+    get:
+      summary: Returns all quotes liked by user.
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: All ok.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+
 components:
   schemas:
     Quote:
@@ -70,12 +117,31 @@ components:
           $ref: "#/components/schemas/Teacher"
         date:
           type: string
+          format: date
         content:
           type: string
         edited:
           type: boolean
         likes:
           type: integer
+      required:
+        - id
+        - teacher
+        - content
+        - likes
+    NewQuote:
+      properties:
+        teacher:
+          type: integer
+        date:
+          type: string
+          format: date
+        content:
+          type: string
+      required:
+        - id
+        - teacher
+        - content
     Teacher:
       properties:
         id:
@@ -89,7 +155,7 @@ components:
     PasswordAuth:
       type: apiKey
       in: header
-      name: X-Passwor
+      name: X-Password
     ApiKeyAuth:
       type: apiKey
       in: header
@@ -98,7 +164,3 @@ components:
       type: apiKey
       in: header
       name: g-recaptcha-response
-      
-
-
-    
