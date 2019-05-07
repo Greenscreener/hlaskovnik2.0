@@ -1,0 +1,104 @@
+openapi: 3.0.0
+info:
+  title: Hláškovník API
+  description: REST API for Hláškovník. An app for writing down funny things teachers say.
+  version: "2.0"
+  
+servers:
+  - url: http://hlaskovnik.tk/api/v2.0/
+    description: The one and only api url.
+  
+paths:
+  /hlasky:
+    get:
+      summary: Returns a list of all quotes.
+      responses:
+        200:
+          description: All OK, a list of quotes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Quote'
+    post:
+      summary: Add a new quote.
+      security: 
+        - PasswordAuth: []
+          ReCaptchaAuth: []
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quote'
+      responses:
+        201:
+          description: OK. Created
+        400:
+          description: Bad Request
+  /hlasky/{quoteId}:
+    get:
+      summary: Returns a quote by id
+      parameters:
+        - in: path
+          name: quoteId
+          schema:
+            type: integer
+          required: true
+      responses:
+        200:
+          description: A quote
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+          
+          
+          
+    
+  
+  
+components:
+  schemas:
+    Quote:
+      properties:
+        id:
+          type: integer
+        teacher:
+          $ref: "#/components/schemas/Teacher"
+        date:
+          type: string
+        content:
+          type: string
+        edited:
+          type: boolean
+        likes:
+          type: integer
+    Teacher:
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - id
+        - name
+  securitySchemes:
+    PasswordAuth:
+      type: apiKey
+      in: header
+      name: X-Passwor
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+    ReCaptchaAuth:
+      type: apiKey
+      in: header
+      name: g-recaptcha-response
+      
+
+
+    
