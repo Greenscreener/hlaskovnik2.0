@@ -47,6 +47,14 @@ if (strpos($path,  '/v2.0') === 0) {
             default:
                 apiError("Method Not Allowed.", 405);
         }
+    } else if (preg_match("/^\//".$regexVersion."\/teachers\/?/", $path)) {
+        switch ($_SERVER["REQUEST_METHOD"]) {
+            case "GET":
+
+                break;
+            default:
+                apiError("Method Not Allowed.", 405);
+        }
     } else {
         apiError("Not Found.", 404);
     }

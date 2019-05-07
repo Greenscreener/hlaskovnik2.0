@@ -106,6 +106,18 @@ paths:
                 type: array
                 items:
                   type: integer
+  /teachers:
+    get:
+      summary: Returns all teachers.
+      responses:
+        200:
+          description: All ok.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Teacher'
 
 components:
   schemas:
