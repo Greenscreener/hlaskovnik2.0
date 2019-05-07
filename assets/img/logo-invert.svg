@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="logo.svg"
+   sodipodi:docname="logo - invert.svg"
    inkscape:export-filename="/home/jan/Dokumenty/html/tk/hlaskovnik/assets/img/logo-256px.png"
    inkscape:export-xdpi="255.14948"
    inkscape:export-ydpi="255.14948">
@@ -61,12 +61,11 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-5.0225471,-187.73199)">
-    <circle
-       style="opacity:1;fill:#00d1b2;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.28943363;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.09392238;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 48.160156 -0.001953125 A 48.16063 48.16063 0 0 0 0 48.160156 A 48.16063 48.16063 0 0 0 48.160156 96.320312 A 48.16063 48.16063 0 0 0 96.320312 48.160156 A 48.16063 48.16063 0 0 0 48.160156 -0.001953125 z M 66.630859 22.636719 L 71.314453 22.636719 L 69.050781 31.953125 C 70.419273 32.935626 71.103516 34.268816 71.103516 35.953125 C 71.103516 37.286517 70.613365 38.407986 69.630859 39.320312 C 68.683443 40.23264 67.507096 40.689453 66.103516 40.689453 C 64.699935 40.689453 63.543187 40.23264 62.630859 39.320312 C 61.718532 38.407986 61.261719 37.286517 61.261719 35.953125 C 61.261719 35.14607 61.36758 34.33833 61.578125 33.53125 C 61.823744 32.689121 62.243313 31.671561 62.839844 30.478516 L 66.630859 22.636719 z M 78.894531 22.636719 L 83.578125 22.636719 L 81.314453 31.953125 C 82.682942 32.970725 83.367188 34.303916 83.367188 35.953125 C 83.367187 37.251418 82.877037 38.372887 81.894531 39.320312 C 80.947115 40.23264 79.788411 40.689453 78.419922 40.689453 C 77.016341 40.689453 75.841948 40.23264 74.894531 39.320312 C 73.947115 38.407986 73.472656 37.286517 73.472656 35.953125 C 73.472656 35.181144 73.596178 34.391039 73.841797 33.583984 C 74.087416 32.74183 74.524633 31.706635 75.15625 30.478516 L 78.894531 22.636719 z M 42.703125 27.689453 L 51.546875 27.689453 L 50.494141 50.742188 L 43.808594 50.742188 L 42.703125 27.689453 z M 47.125 55.533203 C 48.458402 55.533203 49.581813 56.005698 50.494141 56.953125 C 51.406468 57.865453 51.861328 58.971213 51.861328 60.269531 C 51.861328 61.602923 51.406468 62.743979 50.494141 63.691406 C 49.581813 64.603734 48.458402 65.058594 47.125 65.058594 C 45.826689 65.058594 44.703276 64.603734 43.755859 63.691406 C 42.843532 62.743979 42.388672 61.602923 42.388672 60.269531 C 42.388672 58.971213 42.843532 57.865453 43.755859 56.953125 C 44.703276 56.005698 45.826689 55.533203 47.125 55.533203 z M 15.830078 55.691406 C 17.233658 55.691406 18.410005 56.146266 19.357422 57.058594 C 20.304839 57.970921 20.777344 59.094317 20.777344 60.427734 C 20.777344 61.234789 20.655775 62.042554 20.410156 62.849609 C 20.164537 63.656664 19.72537 64.674199 19.09375 65.902344 L 15.355469 73.744141 L 10.671875 73.744141 L 12.988281 64.427734 C 11.584701 63.445234 10.882812 62.112018 10.882812 60.427734 C 10.882813 59.129416 11.355318 58.023656 12.302734 57.111328 C 13.28524 56.163901 14.461588 55.691406 15.830078 55.691406 z M 28.09375 55.691406 C 29.49733 55.691406 30.656032 56.146266 31.568359 57.058594 C 32.515776 57.970921 32.988281 59.094317 32.988281 60.427734 C 32.988281 61.234789 32.866713 62.058261 32.621094 62.900391 C 32.410549 63.707471 31.989024 64.709298 31.357422 65.902344 L 27.568359 73.744141 L 22.882812 73.744141 L 25.199219 64.427734 C 23.795638 63.445234 23.09375 62.112018 23.09375 60.427734 C 23.09375 59.094317 23.568208 57.970921 24.515625 57.058594 C 25.498133 56.146266 26.690172 55.691406 28.09375 55.691406 z "
        id="path827"
-       cx="17.765047"
-       cy="200.47417"
-       r="12.7425" />
+       transform="matrix(0.26458333,0,0,0.26458333,5.0225471,187.73199)" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.93611145px;line-height:125%;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -91,22 +90,5 @@
          x="-19.302723"
          y="209.93715"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.93611145px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332px" /></text>
-    <g
-       aria-label="„!“"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.92614746px;line-height:125%;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33692297px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="text825">
-      <path
-         d="m 7.9018473,203.72011 q 0,-0.51527 0.376006,-0.87735 0.3899321,-0.37601 0.9330518,-0.37601 0.5570459,0 0.9330519,0.36208 0.376006,0.36208 0.376006,0.89128 0,0.3203 -0.09748,0.6406 -0.09748,0.3203 -0.348154,0.80772 l -0.9887562,2.07499 H 7.8461427 l 0.6127505,-2.46493 q -0.5570459,-0.38993 -0.5570459,-1.05838 z m 3.2308657,0 q 0,-0.5292 0.376006,-0.89128 0.389933,-0.36208 0.946978,-0.36208 0.557046,0 0.919126,0.36208 0.376006,0.36208 0.376006,0.89128 0,0.3203 -0.09748,0.65452 -0.08356,0.32031 -0.334227,0.7938 l -1.002683,2.07499 h -1.239427 l 0.61275,-2.46493 q -0.557046,-0.38993 -0.557046,-1.05838 z"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.92614746px;line-height:121.00000381%;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:-1.65766084px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.33692297px"
-         id="path860" />
-      <path
-         d="m 18.66087,195.05804 -0.278523,6.09965 h -1.768621 l -0.292449,-6.09965 z m -1.169797,7.36693 q 0.529194,0 0.891274,0.37601 0.36208,0.36208 0.36208,0.87735 0,0.52919 -0.36208,0.9052 -0.36208,0.36208 -0.891274,0.36208 -0.515267,0 -0.891273,-0.36208 -0.36208,-0.37601 -0.36208,-0.9052 0,-0.51527 0.36208,-0.87735 0.376006,-0.37601 0.891273,-0.37601 z"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.92614746px;line-height:121.00000381%;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:-1.65766084px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.33692297px"
-         id="path862" />
-      <path
-         d="m 23.835507,197.24445 q 0,0.52919 -0.389932,0.89127 -0.376006,0.36208 -0.933052,0.36208 -0.557046,0 -0.919126,-0.36208 -0.36208,-0.36208 -0.36208,-0.89127 0,-0.3203 0.08356,-0.64061 0.09748,-0.33422 0.334228,-0.80771 l 1.002682,-2.075 h 1.239428 l -0.598825,2.46493 q 0.54312,0.38993 0.54312,1.05839 z m 3.244792,0 q 0,0.51526 -0.389932,0.89127 -0.376006,0.36208 -0.919125,0.36208 -0.557046,0 -0.933052,-0.36208 -0.376006,-0.36208 -0.376006,-0.89127 0,-0.30638 0.09748,-0.62668 0.09748,-0.33423 0.348153,-0.82164 l 0.988757,-2.075 h 1.239427 l -0.598824,2.46493 q 0.543119,0.40386 0.543119,1.05839 z"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.92614746px;line-height:121.00000381%;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:-1.65766084px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.33692297px"
-         id="path864" />
-    </g>
   </g>
 </svg>

@@ -1,4 +1,6 @@
 // Bulma customization
+$primary: hsl(171, 100%, 41%);
+$link: $primary;
 
 
 // /Bulma customizatiom
@@ -8,6 +10,59 @@
 // /Bulma import
 
 // Custom styles
+* {
+  transition-duration: 0.2s;
+}
+.navbar-image {
+  padding-right: 5px;
+}
+#quotes {
+  margin-top: 64px;
+  min-height: 90vh;
+}
+.hlaska-content {
+  font-size: larger;
+}
+.n-likes {
+  padding-left: 3px;
+}
+.like-icon {
+  display: none;
+  &.is-active {
+    display: inline-block;
+  }
+}
+.likes:hover, .likes.liked {
+  color: $danger;
+}
+.likes {
+  color: $link;
+}
+.likes {
+  .like-icon.liked {
+    display: none;
+  }
+  .like-icon.not-liked {
+    display: inline-block;
+  }
+  &.liked {
+    .like-icon.liked {
+      display: inline-block;
+    }
+    .like-icon.not-liked {
+      display: none;
+    }
+  }
+}
+.share:hover {
+  color: $info;
+}
+.edited {
+  display: none;
+  &.active {
+    display: inline-block;
+  }
+}
 
 
 // /Custom styles

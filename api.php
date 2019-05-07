@@ -15,7 +15,7 @@ if (strpos($path,  '/v2.0') === 0) {
     if (preg_match("/^\//".$regexVersion."\/hlasky\/?/", $path)) {
         switch ($_SERVER["REQUEST_METHOD"]) {
             case "GET":
-                
+
                 break;
             case "POST":
 
