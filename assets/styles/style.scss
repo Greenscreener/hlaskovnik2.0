@@ -63,6 +63,37 @@ $link: $primary;
     display: inline-block;
   }
 }
+.quote {
+  margin-bottom: 12px;
+}
+a.is-greenscreener {
+  color: #39c100;
+}
+.likes.liked .like-icon {
+  animation: likeBeat;
+  animation-timing-function: cubic-bezier(0,1.45,.85,1.51);
+  animation-duration: 0.5s;
+}
+@keyframes likeBeat {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
 
+#addModal {
+  .modal-card-body {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+  .modal-card-head {
+    background-color: $primary;
+    color: $primary-invert;
+    .modal-card-title {
+      color: inherit;
+    }
+  }
+}
+.field-checkbox {
+  margin: 3px;
+}
 
 // /Custom styles

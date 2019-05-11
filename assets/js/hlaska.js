@@ -1,12 +1,24 @@
 class Hlaska {
+    like() {
+        if (this.liked === false) {
+            this.liked = true;
+            this.likeButton.classList.toggle("liked");
+            this.likeButton.querySelector(".n-likes").innerHTML = this.data.likes + 1;
+        } else {
+            this.liked = false;
+            this.likeButton.classList.toggle("liked");
+            this.likeButton.querySelector(".n-likes").innerHTML = this.data.likes;
+        }
+    }
     constructor(data) {
         this.data = data;
         this.element = document.createElement("div");
+        this.liked = false;
         this.element.innerHTML = `
-        <div class="box">
+        <div class="box quote">
             <div class="hlaska-content">
-                <p><strong>${escapeHTML(data.teacher.name)}</strong> &nbsp; <small>${escapeHTML(data.date)}</small></p>
-                <p>${escapeHTML(data.content)}</p>
+                <p><strong>${escapeHTML(this.data.teacher.name)}</strong> &nbsp; <small>${escapeHTML(new Date(this.data.date).toLocaleDateString())}</small></p>
+                <p>${escapeHTML(this.data.content)}</p>
                 <div class="level is-mobile">
                     <div class="level-left">
                         <div class="level-item">
@@ -18,7 +30,7 @@ class Hlaska {
                                     <i class="far fa-heart"></i>
                                 </span>
                                 <span class="n-likes">
-                                    ${escapeHTML(data.likes)}
+                                    ${escapeHTML(this.data.likes)}
                                 </span>
                             </a>
                         </div>
@@ -29,7 +41,7 @@ class Hlaska {
                         </div>
                     </div>
                     <div class="level-right">
-                        <span class="edited ${data.edited ? "active " : ""}has-text-grey-light">
+                        <span class="edited ${this.data.edited ? "active " : ""}has-text-grey-light">
                             <i class="fas fa-pen"></i>
                         </span>
                     </div>
@@ -37,5 +49,7 @@ class Hlaska {
             </div>
         </div>     
         `;
+        this.likeButton = this.element.querySelector(".likes");
+        this.likeButton.addEventListener("click", () => this.like());
     }
 }
