@@ -95,5 +95,15 @@ a.is-greenscreener {
 .field-checkbox {
   margin: 3px;
 }
+.navbar .title {
+  margin: 0;
+}
+.navbar select, .navbar input {
+  width: 15rem;
+}
 
+#mainMenuBurger {
+  height: 4rem;
+  width: 4rem;
+}
 // /Custom styles

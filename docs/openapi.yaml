@@ -158,11 +158,14 @@ components:
       properties:
         id:
           type: integer
-        name:
+        firstName:
+          type: string
+        lastName:
           type: string
       required:
         - id
-        - name
+        - firstName
+        - lastName
   securitySchemes:
     PasswordAuth:
       type: apiKey
