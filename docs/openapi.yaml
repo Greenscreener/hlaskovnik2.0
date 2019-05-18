@@ -88,6 +88,29 @@ paths:
           description: Bad request.
         409:
           description: Conflict. Already liked.
+    delete:
+      summary: Removes a like from a quote.
+      security:
+        - ReCaptchaAuth: []
+        - ApiKeyAuth: []
+      parameters:
+        - in: cookie
+          name: userId
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: quoteId
+          schema:
+            type: integer
+          required: true
+      responses:
+        200:
+          description: OK. Like removed.
+        400:
+          description: Bad request.
+        409:
+          description: Conflict. Not yet liked.
   /users/{userId}/likes:
     get:
       summary: Returns all quotes liked by user.

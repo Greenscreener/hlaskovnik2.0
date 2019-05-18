@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="/assets/styles/style.css">
     <link rel="icon" href="/assets/img/favicon.ico">
     <link rel="icon" href="/assets/img/logo-256px.png">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script type="text/javascript" src="assets/js/hlaska.js"></script>
     <script type="text/javascript" src="assets/js/modal.js"></script>
+    <script type="text/javascript" src="assets/js/api.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <meta name="description" content="Z toho vašeho hláškovníku se mi chce blejt mezi lyže. Život je pes. C'est la vie.">
@@ -76,7 +78,7 @@
                     <label class="label">Jméno Profesora</label>
                     <div class="control">
                         <span class="select">
-                            <select  id="teacherSelect">
+                            <select  id="teacherSelect" class="teacherSelect">
                             <!-- TODO: Replace this with API call -->
                                 <option value="">- Vyberte jméno profesora -</option>
                                 <option value="Bohumila Kysilková"> Bohumila Kysilková </option>

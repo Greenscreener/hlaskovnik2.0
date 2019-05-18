@@ -3,17 +3,29 @@ class Hlaska {
         if (this.liked === false) {
             this.liked = true;
             this.likeButton.classList.toggle("liked");
-            this.likeButton.querySelector(".n-likes").innerHTML = this.data.likes + 1;
+            this.data.likes++;
+            this.likeButton.querySelector(".n-likes").innerHTML = this.data.likes;
+            this.api.addLike(this);
         } else {
             this.liked = false;
             this.likeButton.classList.toggle("liked");
+            this.data.likes--;
             this.likeButton.querySelector(".n-likes").innerHTML = this.data.likes;
+            this.api.removeLike(this);
         }
     }
-    constructor(data) {
+    share() {
+        modal("Sdílet",`<p>Zde je odkaz pro sdílení:</p><p><input class="shareInput input" type="text" value="${this.shareUrl}" readonly></p>`,"","Kopírovat", "Zavřít");
+        document.getElementsByClassName("shareInput")[document.getElementsByClassName("shareInput").length-1].select();
+    }
+    constructor(data, api) {
         this.data = data;
+        this.api = api;
+        this.shareUrl = this.api.url + "/hlasky/" + this.data.id;
         this.element = document.createElement("div");
         this.liked = false;
+    }
+    display() {
         this.element.innerHTML = `
         <div class="box quote">
             <div class="hlaska-content">
@@ -51,5 +63,21 @@ class Hlaska {
         `;
         this.likeButton = this.element.querySelector(".likes");
         this.likeButton.addEventListener("click", () => this.like());
+        this.shareButton = this.element.querySelector(".share");
+        this.shareButton.addEventListener("click", () => this.share());
+    }
+}
+
+class HlaskaArray extends Array {
+    display() {
+        document.querySelector("#quotes > .container").innerHTML = "";
+        this.forEach(e => {e.display(); document.querySelector("#quotes > .container").appendChild(e.element);});
+    }
+    static generateFromJson(json, api) {
+        let hlaskaArray = new HlaskaArray();
+        for (let i = 0; i < json.length; i++) {
+            hlaskaArray.push(new Hlaska(json[i], api));
+        }
+        return hlaskaArray;
     }
 }

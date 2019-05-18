@@ -12,7 +12,7 @@ function modal(header, text, color, ...buttons) {
                         </div>
                         <div class="message-body">
                             ${text}
-                            <div class="buttons"></div>
+                            <div class="buttons is-right"></div>
                         </div>
                     </article>
                 </div>
@@ -25,7 +25,14 @@ function modal(header, text, color, ...buttons) {
         for (let i = 0; i < buttons.length; i++) {
             const button = document.createElement("button");
             button.className = "button is-" + color;
-            button.addEventListener("click", () => {div.parentElement.removeChild(div); resolve(buttons[i]);});
+            button.addEventListener("click", () => {
+                resolve(buttons[i]);
+                if (buttons[i] === "Kopírovat") {
+                    document.getElementsByClassName("shareInput")[document.getElementsByClassName("shareInput").length-1].select();
+                    document.execCommand('copy');
+                }
+                div.parentElement.removeChild(div);
+            });
             button.innerText = buttons[i];
             div.querySelectorAll(".buttons")[0].appendChild(button);
         }
