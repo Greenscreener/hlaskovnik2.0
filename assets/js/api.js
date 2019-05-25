@@ -32,7 +32,7 @@ class Api {
             });
         });
     }
-    removeLike(quote) {
+    removeLike(hlaska) {
         return new Promise((resolve) => {
             fetch(this.url + "/hlasky/" + hlaska.data.id + "/likes", {
                 method: "DELETE",

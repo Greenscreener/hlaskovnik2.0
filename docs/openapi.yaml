@@ -68,7 +68,6 @@ paths:
     post:
       summary: Adds a like to a quote.
       security:
-        - ReCaptchaAuth: []
         - ApiKeyAuth: []
       parameters:
         - in: cookie
@@ -91,7 +90,6 @@ paths:
     delete:
       summary: Removes a like from a quote.
       security:
-        - ReCaptchaAuth: []
         - ApiKeyAuth: []
       parameters:
         - in: cookie
@@ -111,6 +109,20 @@ paths:
           description: Bad request.
         409:
           description: Conflict. Not yet liked.
+  /users:
+    post:
+      summary: Adds a new user.
+      security:
+        - ApiKeyAuth: []
+        - ReCaptchaAuth: []
+      responses:
+        200:
+          description: User created.
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+                example: userId=86a057b6-c956-4ffd-9171-8faaf5a6ff58; Path=/; HttpOnly
   /users/{userId}/likes:
     get:
       summary: Returns all quotes liked by user.

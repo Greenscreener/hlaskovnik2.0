@@ -110,4 +110,19 @@ a.is-greenscreener {
 .modal .buttons {
   margin-top: 10px;
 }
+
+// Stolen from my own code from gbl.cz
+.is-loading-ajax {
+  padding: 5em;
+  &:after {
+    @include loader;
+    position: absolute;
+    top: calc(50% - 1.5em);
+    left: calc(50% - 1.5em);
+    width: 3em;
+    height: 3em;
+    border-width: 0.25em;
+  }
+}
+
 // /Custom styles

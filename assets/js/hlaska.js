@@ -29,7 +29,7 @@ class Hlaska {
         this.element.innerHTML = `
         <div class="box quote">
             <div class="hlaska-content">
-                <p><strong>${escapeHTML(this.data.teacher.name)}</strong> &nbsp; <small>${escapeHTML(new Date(this.data.date).toLocaleDateString())}</small></p>
+                <p><strong>${escapeHTML(this.data.teacher.firstName) + " " + escapeHTML(this.data.teacher.lastName)}</strong> &nbsp; <small>${isValidDate(new Date(this.data.date)) ? escapeHTML(new Date(this.data.date).toLocaleDateString()) : "<smaller class='has-text-grey-light'>Neznámé datum</smaller>"}</small></p>
                 <p>${escapeHTML(this.data.content)}</p>
                 <div class="level is-mobile">
                     <div class="level-left">
@@ -53,7 +53,7 @@ class Hlaska {
                         </div>
                     </div>
                     <div class="level-right">
-                        <span class="edited ${this.data.edited ? "active " : ""}has-text-grey-light">
+                        <span class="edited ${this.data.edited ? "active " : ""}has-text-grey-light" title="Hláška byla upravena administrátorem.">
                             <i class="fas fa-pen"></i>
                         </span>
                     </div>
