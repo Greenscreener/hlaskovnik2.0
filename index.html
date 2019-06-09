@@ -14,6 +14,7 @@
     <script type="text/javascript" src="assets/js/api.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcxSaIUAAAAAB5ApbfGLvujSX4MffMAVXQz0bt5"></script>
     <meta name="description" content="Z toho vašeho hláškovníku se mi chce blejt mezi lyže. Život je pes. C'est la vie.">
 </head>
 <body>
@@ -30,11 +31,11 @@
             <div class="navbar-start">
                 <span class="navbar-item ">
                     <span class="select">
-                        <select class="teacherSelect"></select>
+                        <select id="searchTeacher" class="teacherSelect"></select>
                     </span>
                 </span>
                 <span class="navbar-item">
-                    <input type="date" class="input">
+                    <input type="date" id="searchDate" class="input">
                 </span>
             </div>
             <div class="navbar-end">
@@ -71,7 +72,7 @@
                 <div class="field">
                     <label class="label">Přístupové heslo</label>
                     <div class="control">
-                        <input type="password" class="input" placeholder="··········">
+                        <input type="password" id="addModalPassword" class="input" placeholder="··········">
                     </div>
                 </div>
                 <div class="field">
@@ -86,7 +87,7 @@
                 <div class="field has-addons">
                     <div class="control">
                         <button class="button" id="unknownDateBox">
-                            Neznámé  <input type="checkbox" class="field-checkbox">
+                            Neznámé  <input type="checkbox" id="addModalUnknownDate"  class="field-checkbox">
                         </button>
                     </div>
                     <div class="control is-expanded">
@@ -97,13 +98,13 @@
                     <label class="label">Hláška</label>
                     <div class="control">
                         <!-- TODO: Add random quote from API -->
-                        <textarea class="textarea" placeholder="Život je pes, c'est la vie."></textarea>
+                        <textarea class="textarea" id="addModalContent"  placeholder="Život je pes, c'est la vie."></textarea>
                     </div>
                 </div>
 
 
                 <div class="buttons is-right">
-                    <button class="button is-primary">Odeslat</button>
+                    <button class="button is-primary" onclick="submitQuote()">Odeslat</button>
                     <button class="button" onclick="toggleAddModal()">Zrušit</button>
                 </div>
 

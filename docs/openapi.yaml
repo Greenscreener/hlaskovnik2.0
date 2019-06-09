@@ -16,7 +16,7 @@ paths:
         - in: query
           name: filterByTeacher
           schema:
-            type: string
+            type: int
         - in: query
           name: filterByDate
           schema:
@@ -186,7 +186,6 @@ components:
         content:
           type: string
       required:
-        - id
         - teacher
         - content
     Teacher:

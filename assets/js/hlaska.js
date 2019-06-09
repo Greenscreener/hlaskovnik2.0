@@ -21,7 +21,7 @@ class Hlaska {
     constructor(data, api) {
         this.data = data;
         this.api = api;
-        this.shareUrl = this.api.url + "/hlasky/" + this.data.id;
+        this.shareUrl = location.protocol + "//" + location.hostname + "?id=" + this.data.id;
         this.element = document.createElement("div");
         this.liked = false;
     }
@@ -34,7 +34,7 @@ class Hlaska {
                 <div class="level is-mobile">
                     <div class="level-left">
                         <div class="level-item">
-                            <a class="likes">
+                            <a class="likes${this.liked ? " liked": ""}">
                                 <span class="like-icon liked">
                                     <i class="fas fa-heart"></i>
                                 </span>
