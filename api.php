@@ -190,7 +190,16 @@ if (strpos($path,  '/v2.0') === 0) {
                     apiError("User does not exist.", 404);
                     return;
                 }
-
+                $stmt = $conn->prepare("SELECT * FROM likes_by_user WHERE hlaskaId = :hlaskaId AND userId = :userId");
+                $stmt->execute([
+                    "userId" => $_COOKIE["userId"],
+                    "hlaskaId" => $matches[1]
+                ]);
+                $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                if (empty($arr)) {
+                    apiError("Not yet liked.", 409);
+                    return;
+                }
                 $stmt = $conn->prepare("DELETE FROM likes_by_user WHERE hlaskaId = :hlaskaId AND userId = :userId");
                 $stmt->execute([
                     "userId" => $_COOKIE["userId"],
