@@ -90,7 +90,7 @@ class Api {
                     resolve();
                 } else {
                     if (response.status === 409) {
-                        reload();
+                        reload(api,hlaskaArray[0]);
                     }
                 }
             });
