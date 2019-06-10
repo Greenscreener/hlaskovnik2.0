@@ -1,2 +1,6 @@
+Header set X-Frame-Options SAMEORIGIN
 RewriteEngine on
-RewriteRule ^api(/[^?]*) api.php?path=$1&$2 [QSA]
+RewriteRule ^api(/[^?]*) api.php?path=$1&$2 [QSA,L]
+RewriteCond %{HTTPS} !on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,QSA,NE]

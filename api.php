@@ -84,6 +84,11 @@ $path = $_GET["path"];
 if (strpos($path,  '/v2.0') === 0) {
     $version = 'v2.0';
     $regexVersion = str_replace(".","\.", $version);
+    if ($_SERVER["REQUEST_METHOD"] !== "GET" && parse_url($_SERVER["HTTP_REFERER"], PHP_URL_HOST) !== $_SERVER["HTTP_HOST"]) {
+        apiError("Refusing non-GET request from unknown referer.", 400);
+
+        return;
+    }
     try {
         $options = [
             PDO::ATTR_EMULATE_PREPARES => false,
@@ -151,6 +156,13 @@ if (strpos($path,  '/v2.0') === 0) {
                 $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 if (empty($arr)) {
                     apiError("User does not exist.", 404);
+                    return;
+                }
+                $stmt = $conn->prepare("SELECT * FROM hlasky WHERE id = :hlaskaId");
+                $stmt->execute(["hlaskaId" => $matches[1]]);
+                $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                if (empty($arr)) {
+                    apiError("Hlaska does not exist.", 404);
                     return;
                 }
                 try {
