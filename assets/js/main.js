@@ -106,6 +106,11 @@ function reload(api,hlaskaArray) {
     document.querySelectorAll('#mainMenu, #mainMenuBurger').forEach((e) => {
         e.classList.remove('is-active');
     });
+    document.querySelectorAll("#addModal input, #addModal textarea").forEach((e) => {
+        e.value = "";
+    });
+    if (document.getElementById("addModalUnknownDate").checked === true) document.getElementById("addModalUnknownDate").click();
+    document.getElementById("teacherSelect").options[0].selected = true;
 }
 function submitQuote() {
     let valid = true;
