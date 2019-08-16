@@ -110,12 +110,11 @@ function reload(api,hlaskaArray) {
         e.value = "";
     });
     if (document.getElementById("addModalUnknownDate").checked === true) document.getElementById("addModalUnknownDate").click();
-    document.getElementById("teacherSelect").options[0].selected = true;
 }
 function submitQuote() {
     let valid = true;
-    [...document.querySelectorAll("#addModal input, #addModal textarea, #addModal select")].forEach(e => {
-        if ((e.value === "" && (e.id !== "dateInput" || !document.getElementById("addModalUnknownDate").checked))) {
+    [...document.querySelectorAll("#addModal input:not([type=checkbox]), #addModal textarea, #addModal select")].forEach(e => {
+	    if (e.id === "dateInput" ? (e.value === "" && !document.getElementById("addModalUnknownDate").checked) : (e.value === "")) {
             if (!e.closest(".field").querySelector("p.help")) {
                 const hintP = document.createElement("p");
                 hintP.innerText = "Políčko musí být vyplněné.";
