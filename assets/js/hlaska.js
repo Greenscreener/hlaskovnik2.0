@@ -36,10 +36,10 @@ class Hlaska {
                         <div class="level-item">
                             <a class="likes${this.liked ? " liked": ""}">
                                 <span class="like-icon liked">
-                                    <i class="fas fa-heart"></i>
+
                                 </span>
                                 <span class="like-icon not-liked">
-                                    <i class="far fa-heart"></i>
+
                                 </span>
                                 <span class="n-likes">
                                     ${escapeHTML(this.data.likes)}
@@ -48,7 +48,7 @@ class Hlaska {
                         </div>
                         <div class="level-item">
                             <a class="share">
-                                <i class="fas fa-share"></i>
+                                
                             </a>
                         </div>
                     </div>
@@ -66,12 +66,21 @@ class Hlaska {
         this.shareButton = this.element.querySelector(".share");
         this.shareButton.addEventListener("click", () => this.share());
     }
+    displayIcons() {
+        this.element.querySelectorAll(".like-icon.liked").forEach(e => e.innerHTML = "<i class=\"fas fa-heart\"></i>");
+        this.element.querySelectorAll(".like-icon.not-liked").forEach(e => e.innerHTML = "<i class=\"far fa-heart\"></i>");
+        this.element.querySelectorAll(".share").forEach(e => e.innerHTML = "<i class=\"fas fa-share\"></i>");
+    }
 }
 
 class HlaskaArray extends Array {
     display() {
         document.querySelector("#quotes > .container").innerHTML = "";
         this.forEach(e => {e.display(); document.querySelector("#quotes > .container").appendChild(e.element);});
+        setTimeout(() => this.forEach(e => e.displayIcons()), 10000);
+    }
+    displayIcons() {
+        this.forEach(e => e.displayIcons());
     }
     static generateFromJson(json, api) {
         let hlaskaArray = new HlaskaArray();
