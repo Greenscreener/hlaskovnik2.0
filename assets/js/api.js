@@ -117,6 +117,7 @@ class Api {
                     } else if (response.status === 401) {
                         modal("Špatné heslo.", "Zadali jste špatné heslo.", "danger", "OK");
                     }
+					reject();
                 }
             });
         });

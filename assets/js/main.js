@@ -142,11 +142,17 @@ function submitQuote() {
         content: document.getElementById("addModalContent").value,
         date: document.getElementById("addModalUnknownDate").checked ? null : document.getElementById("dateInput").value
     };
+	document.querySelector("#addModalSubmit").disabled = true;
+	document.querySelector("#addModalSubmit").classList.add("is-loading");
     api.addQuote(document.getElementById("addModalPassword").value, data).then(() => {
         toggleAddModal();
+		document.querySelector("#addModalSubmit").disabled = false;
+		document.querySelector("#addModalSubmit").classList.remove("is-loading");
         reload(api,hlaskaArray);
-    });
-
+	}).catch(() => {
+		document.querySelector("#addModalSubmit").disabled = false;
+		document.querySelector("#addModalSubmit").classList.remove("is-loading");
+	})
 }
 window.onpopstate = () => {
     reload(api,hlaskaArray);
