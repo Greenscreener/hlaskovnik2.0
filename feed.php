@@ -20,7 +20,7 @@ function toAtomDateConstruct($date_from_db) {
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Hláškovník 2.0</title>
   <link href="https://hlaskovnik.eu"/>
-  <updated><?php echo(htmlspecialchars($feed_updated)); ?></updated>
+  <updated><?php echo(htmlspecialchars(toAtomDateConstruct($feed_updated))); ?></updated>
   <author>
     <name>Greenscreener</name>
   </author>
@@ -31,7 +31,7 @@ function toAtomDateConstruct($date_from_db) {
     <title><?php echo(htmlspecialchars($hlaska['date'])); ?>: <?php echo(htmlspecialchars($hlaska['teacher_firstName'])); ?> <?php echo(htmlspecialchars($hlaska['teacher_lastName'])); ?></title>
     <link href="https://hlaskovnik.eu/?id=<?php echo(htmlspecialchars(urlencode((string)$hlaska['id']))); ?>"/>
     <id>https://hlaskovnik.eu/?id=<?php echo(htmlspecialchars(urlencode((string)$hlaska['id']))); ?></id>
-    <updated><?php echo(htmlspecialchars($hlaska['edited'])); ?></updated>
+    <updated><?php echo(htmlspecialchars(toAtomDateConstruct($hlaska['edited']))); ?></updated>
     <summary><?php echo(htmlspecialchars($hlaska['content'])); ?></summary>
   </entry>
   <?php } ?>
