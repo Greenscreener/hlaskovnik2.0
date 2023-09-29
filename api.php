@@ -54,6 +54,7 @@ class Hlaska {
     public $edited;
     public $likes;
     public $teacher;
+    public $likeOffset;
 
     private $teacher_id;
     private $teacher_firstName;
@@ -105,11 +106,11 @@ if (strpos($path,  '/v2.0') === 0) {
     if (preg_match("/^\/".$regexVersion."\/hlasky\/?$/", $path)) {
         switch ($_SERVER["REQUEST_METHOD"]) {
             case "GET":
-                if ($_GET["filterByTeacher"] === null && $_GET["filterByDate"] === null) {
+                if (!isset($_GET["filterByTeacher"]) && !isset($_GET["filterByDate"])) {
                     dbSELECT($conn, "SELECT hlasky.*, t.firstName AS 'teacher_firstName', t.lastName AS 'teacher_lastName', t.id AS 'teacher_id', ((SELECT COUNT(*) FROM likes_by_user WHERE likes_by_user.hlaskaId = hlasky.id)+hlasky.likeOffset) AS likes FROM hlasky JOIN teachers t ON teacherId = t.id  ORDER BY hlasky.id DESC", 'Hlaska');
-                } elseif ($_GET["filterByDate"] === null) {
+                } elseif (!isset($_GET["filterByDate"])) {
                     dbSELECT($conn, "SELECT hlasky.*, t.firstName AS 'teacher_firstName', t.lastName AS 'teacher_lastName', t.id AS 'teacher_id', ((SELECT COUNT(*) FROM likes_by_user WHERE likes_by_user.hlaskaId = hlasky.id)+hlasky.likeOffset) AS likes FROM hlasky JOIN teachers t ON teacherId = t.id WHERE hlasky.teacherId = :teacherId ORDER BY hlasky.id DESC", 'Hlaska', ["teacherId" => $_GET["filterByTeacher"]]);
-                } elseif ($_GET["filterByTeacher"] === null) {
+                } elseif (!isset($_GET["filterByTeacher"])) {
                     dbSELECT($conn, "SELECT hlasky.*, t.firstName AS 'teacher_firstName', t.lastName AS 'teacher_lastName', t.id AS 'teacher_id', ((SELECT COUNT(*) FROM likes_by_user WHERE likes_by_user.hlaskaId = hlasky.id)+hlasky.likeOffset) AS likes FROM hlasky JOIN teachers t ON teacherId = t.id WHERE hlasky.date = :date ORDER BY hlasky.id DESC", 'Hlaska', ["date" => $_GET["filterByDate"]]);
                 } else {
                     dbSELECT($conn, "SELECT hlasky.*, t.firstName AS 'teacher_firstName', t.lastName AS 'teacher_lastName', t.id AS 'teacher_id', ((SELECT COUNT(*) FROM likes_by_user WHERE likes_by_user.hlaskaId = hlasky.id)+hlasky.likeOffset) AS likes FROM hlasky JOIN teachers t ON teacherId = t.id WHERE hlasky.date = :date AND hlasky.teacherId = :teacherId ORDER BY hlasky.id DESC", 'Hlaska', ["date" => $_GET["filterByDate"], "teacherId" => $_GET["filterByTeacher"]]);
