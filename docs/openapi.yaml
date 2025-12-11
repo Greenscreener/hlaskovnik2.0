@@ -153,9 +153,65 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Teacher'
+  /feed:
+    get:
+      summary: An atom feed.
+      responses:
+        200:
+          description: The atom feed
+          content:
+            application/atom+xml:
+              schema:
+                $ref: '#components/schemas/feed'
 
 components:
   schemas:
+    feed:
+      xml:
+        namespace: "http://www.w3.org/2005/Atom"
+      properties:
+        title:
+          example: "Hláškovník 2.0"
+        link:
+          properties:
+            href:
+              example: "https://hlaskovnik.eu"
+              xml:
+                attribute: true
+        updated:
+          example: "2025-12-11 22:17:30"
+        author:
+          properties:
+            name:
+              example: "Greenscreener"
+        id:
+          example: "urn:uuid:3fbed38a-bbdb-4877-adb4-88309f2229d9"
+        entry:
+          type: array
+          items:
+            properties:
+              title:
+              link:
+                properties:
+                  href:
+                    xml:
+                      attribute: true
+              id:
+              updated:
+              summary:
+          example:
+            - title: "2025-12-11: Jan Černohorský"
+              link:
+                href: "https://hlaskovnik.eu/?id=880"
+              id: "https://hlaskovnik.eu/?id=880"
+              updated: "2025-12-11 22:17:30"
+              summary: "Nikdy netestujte nové fíčury na produkci!"
+            - title: "2025-12-11: Jan Černohorský"
+              link:
+                href: "https://hlaskovnik.eu/?id=881"
+              id: "https://hlaskovnik.eu/?id=881"
+              updated: "2025-12-11 22:17:31"
+              summary: "Nikdy netestujte nové fíčury na produkci!"
     Quote:
       properties:
         id:

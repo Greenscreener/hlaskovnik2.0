@@ -46,6 +46,12 @@ function recaptchaVerify($token) {
     return json_decode($result,true);
 }
 
+class Teacher {
+    public $id;
+    public $firstName;
+    public $lastName;
+}
+
 class Hlaska {
 
     public $id;
@@ -55,6 +61,7 @@ class Hlaska {
     public $likes;
     public $teacher;
     public $likeOffset;
+    public $lastUpdate;
 
     private $teacher_id;
     private $teacher_firstName;
@@ -62,23 +69,21 @@ class Hlaska {
     private $teacherId;
 
     function __construct() {
-        $this->teacher = [
-            "id" => $this->teacher_id,
-            "firstName" => $this->teacher_firstName,
-            "lastName" => $this->teacher_lastName
-        ];
+        // $this->teacher = [
+        //     "id" => $this->teacher_id,
+        //     "firstName" => $this->teacher_firstName,
+        //     "lastName" => $this->teacher_lastName
+        // ];
+        $this->teacher = new Teacher();
+        $this->teacher->id = $this->teacher_id;
+        $this->teacher->firstName = $this->teacher_firstName;
+        $this->teacher->lastName = $this->teacher_lastName;
         if ($this->date === null) {
             $this->date = "0000-00-00";
         }
     }
 
 }
-class Teacher {
-    public $id;
-    public $firstName;
-    public $lastName;
-}
-
 
 $path = $_GET["path"];
 
@@ -250,6 +255,25 @@ if (strpos($path,  '/v2.0') === 0) {
         switch ($_SERVER["REQUEST_METHOD"]) {
             case "GET":
                 dbSELECT($conn, 'SELECT * FROM teachers ORDER BY lastName, firstName','Teacher');
+                break;
+            default:
+                apiError("Method '".$_SERVER["REQUEST_METHOD"]."' Not Allowed on path '".$path."'.", 405);
+        }
+    } else if (preg_match("/^\/".$regexVersion."\/feed\/?$/", $path)) {
+        switch ($_SERVER["REQUEST_METHOD"]) {
+            case "GET":
+                $stmt = $conn->prepare("SELECT hlasky.*, t.firstName AS 'teacher_firstName', t.lastName AS 'teacher_lastName', t.id AS 'teacher_id' FROM hlasky JOIN teachers t ON teacherId = t.id ORDER BY hlasky.lastUpdate DESC, hlasky.id DESC");
+                $stmt->execute();
+                $hlasky = $stmt->fetchAll(PDO::FETCH_CLASS, 'Hlaska');
+                $stmt = null;
+
+                $feed_updated = null;
+                if (sizeof($hlasky) > 0) {
+                    $feed_updated = $hlasky[0]->lastUpdate;
+                }
+
+                include('feed.php');
+
                 break;
             default:
                 apiError("Method '".$_SERVER["REQUEST_METHOD"]."' Not Allowed on path '".$path."'.", 405);
